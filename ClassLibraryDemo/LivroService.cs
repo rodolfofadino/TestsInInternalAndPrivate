@@ -12,5 +12,11 @@
             //exemplo
             return pesoLivro * quantidadeDeLivros;
         }
+
+        protected double CalculaPesoDaCaixaComACaixa(double pesoLivro,double pesoCaixa, int quantidadeDeLivros)
+        {
+            //exemplo
+            return (pesoLivro * quantidadeDeLivros)+pesoCaixa;
+        }
     }
 }

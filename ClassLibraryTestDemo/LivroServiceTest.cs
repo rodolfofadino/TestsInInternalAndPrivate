@@ -35,5 +35,22 @@ namespace ClassLibraryTestDemo
 
             Assert.AreEqual(0.4, pesoTotal);
         }
+
+        [TestMethod]
+        public void Verifica_Se_2_Livros_De_300_Gramas_Com_Uma_Caixa_De_100_Gramas_Pesam_700_Gramas()
+        {
+            const int numeroDeLivros = 2;
+            const double pesoDeCadaLivro = 0.3;
+            const double pesoDaCaixa = 0.1;
+
+            var livroService = new LivroService();
+
+            var bindingFlags = BindingFlags.Instance | BindingFlags.NonPublic;
+
+            MethodInfo mInfoMethod = typeof(LivroService).GetMethod("CalculaPesoDaCaixaComACaixa", bindingFlags);
+            var pesoTotal = (double)mInfoMethod.Invoke(livroService, new object[] { pesoDeCadaLivro, pesoDaCaixa,numeroDeLivros });
+
+            Assert.AreEqual(0.7, pesoTotal);
+        }
     }
 }
